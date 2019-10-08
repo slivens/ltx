@@ -1,0 +1,39 @@
+@import '../../../../less/common.less';
+.my_branch{
+    height: 100%;
+    background: #F4F4F4;
+    &_entry{
+        height: calc(~"100% - .5rem");
+        overflow: auto;
+    }
+    &_topbar{
+        .topBar;
+    }
+    &_follow{
+        height:.5rem;
+        line-height: .5rem;
+        background: #fff;
+        font-size: .18rem;
+        .content{
+            font-weight: 600;
+        }
+    }
+    &_card {
+        .title_line {
+            display: inline-block;
+            width: .04rem;
+            height: .16rem;
+            background: #E90F31;
+            vertical-align: middle;
+        }
+
+        .card_title {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: .08rem;
+        }
+    }
+         .am-card-body{
+             font-size: .18rem;
+         }
+}

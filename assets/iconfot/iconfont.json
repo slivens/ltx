@@ -1,0 +1,37 @@
+{
+  "id": "1418603",
+  "name": "离退休APP",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10910159",
+      "name": "信息",
+      "font_class": "xinxi",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "10910162",
+      "name": "通讯录",
+      "font_class": "tongxunlu",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "10910163",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "10910164",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    }
+  ]
+}

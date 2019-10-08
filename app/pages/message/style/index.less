@@ -1,0 +1,60 @@
+@import '../../../less/common.less';
+
+.mesg {
+    background: #F8F8F8;
+    height: 100%;
+
+    &_topbar {
+        .topBar;
+    }
+
+    &_select {
+        height: .5rem;
+        background: #FFFFFF;
+        position: relative;
+        border-bottom: @border-bottom;
+        margin-bottom: .2rem;
+
+        .am-segment {
+            position: absolute;
+            top: 50%;
+            height: .3rem;
+            width: 2rem;
+            transform: translateY(-50%);
+            left: 50%;
+            margin-left: -1rem;
+        }
+    }
+
+    &_item {
+        height: .8rem;
+        background: #FFFFFF;
+        border-bottom: @border-bottom;
+
+        &_content {
+            padding-left: .1rem;
+            font-size: .14rem;
+            .title {
+                font-size: .16rem;
+                font-weight: 700;
+                color: #333333;
+            }
+        }
+
+        &_right {
+            text-align: right;
+            font-size: .14rem;
+            padding-right: .1rem;
+        }
+    }
+
+    .ant-avatar {
+        width: .58rem;
+        height: .58rem;
+        line-height: .58rem;
+        font-size: .29rem !important;
+    }
+    &_list{
+        border-top: @border-bottom;
+    }
+}

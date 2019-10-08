@@ -1,0 +1,34 @@
+{
+  "presets": ["@babel/preset-react",
+    ["@babel/preset-env",{
+      "targets":{
+          "chrome":52,
+          "ie":9
+      },
+      "useBuiltIns": "usage",
+      "corejs": 2
+  }]],
+  "plugins": [
+    ["import", 
+      { "libraryName": "antd-mobile", "style": "true" },
+    //   {
+    //   "libraryName": "antd",
+    //   "libraryDirectory": "es",
+    //   "style": "true" // `style: true` 会加载 less 文件
+    // }
+  ],
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": 2,
+        "helpers": true,
+        "regenerator": true,
+        "useESModules": false
+      }
+    ],
+    "react-hot-loader/babel",
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-proposal-class-properties"]
+  ]
+}

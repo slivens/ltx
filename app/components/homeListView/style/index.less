@@ -1,0 +1,84 @@
+@import "../../../less/common.less";
+
+.homeListView {
+    height: calc(~"100% - 4.1rem - 52.5px");
+    &>div{
+        height: 100%;
+    }
+    &_item {
+        padding: .05rem;
+        height: 1rem;
+        box-sizing: border-box;
+        border-bottom: @border-bottom;
+
+        &::before {
+            display: inline-block;
+            content: '';
+            width: 0;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        &_pic {
+            // background-image: url('../../../../assets/images/banner2.png');
+            width: 1.2rem;
+            height: .8rem;
+            // background: #39dbac;
+            display: inline-block;
+            vertical-align: middle;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &_right {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: .1rem;
+            width: calc(~"100% - 1.3rem");
+            height: 100%;
+
+            &-top {
+                width: 100%;
+                position: absolute;
+                top: .1rem;
+
+                .title {
+                    font-size: .18rem;
+                    font-weight: 700;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                .content {
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-size: .17rem;
+                }
+
+            }
+
+            &-bottom {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                font-size: .17rem;
+
+                .date {
+                    float: left;
+                }
+
+                .count {
+                    float: right;
+                    margin-right: .1rem;
+                }
+            }
+
+        }
+    }
+}
