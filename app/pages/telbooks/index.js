@@ -7,9 +7,54 @@ import { withRouter } from 'react-router-dom';
 import Avatar from 'antd/es/avatar';
 import 'antd/es/avatar/style';
 import FooterBar from '../../components/footerBar/footerbar';
-import datasource from '../../../assets/data/addressBook.json';
+// import datasource from '../../../assets/data/addressBook.json';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import commonUrl from '../../config';
+import {Toast} from 'antd-mobile';
+
 class index extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            datasource:""
+        }
+    }
+    componentWillMount() {
+        const {personCategory,unitId}=this.props;
+        Toast.loading('Loading...',0);
+        axios.post(`${commonUrl}/app/qryMailList.do`,{personCategory,unitId}).then(
+            res=>{
+                console.log(res)
+                if(res.data.code==='success'){
+                   this.setState({datasource:res.data.data})
+                   Toast.hide(); 
+                }else{
+                    Toast.hide();
+                    Toast.fail(res.data.message)
+                }
+            }
+        )
+    }
+    SearchChange=(searchContent)=>{
+        console.log('@@@value',searchContent)
+        const {personCategory,unitId}=this.props;
+        // Toast.loading('Loading...',0);
+        axios.post(`${commonUrl}/app/qryMailList.do`,{personCategory,unitId,searchContent}).then(
+            res=>{
+                console.log(res)
+                if(res.data.code==='success'){
+                   this.setState({datasource:res.data.data})
+                //    Toast.hide(); 
+                }else{
+                    // Toast.hide();
+                    Toast.fail(res.data.message)
+                }
+            }
+        )
+    }
     render() {
+        const {datasource} = this.state;
         return (
             <div className="telbooks">
                 <div className="topbar">
@@ -25,10 +70,10 @@ class index extends Component {
                         }} type="left" />
                     <div >通讯录</div>
                 </div>
-                <SearchBar placeholder="搜索..." maxLength={20} />
+                <SearchBar placeholder="搜索..." maxLength={20} onChange={this.SearchChange}/>
                 <div className="telbooks_member">
                 <Accordion defaultActiveKey="0" className="my-accordion" onChange={this.onChange}>
-                    {
+                    {   datasource?
                         datasource.map((item,index) =>
                             <Accordion.Panel key={index} header={item.department}>
                                 <List className="my-list">
@@ -46,6 +91,8 @@ class index extends Component {
                                 </List>
                             </Accordion.Panel>
                         )
+                        :
+                        <div/>
                     }
 
                 </Accordion>
@@ -56,4 +103,10 @@ class index extends Component {
     }
 }
 
-export default withRouter(index);
+const mapStateToProps = (state,ownprops)=>{
+    return{
+        unitId:state.unitId,
+        personCategory:state.personCategory
+    }
+}
+export default connect(mapStateToProps, null)(withRouter(index));

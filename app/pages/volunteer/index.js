@@ -4,6 +4,7 @@ import Icon from 'antd/es/icon';
 import 'antd/es/icon/style';
 import './style/index.less';
 import ConmonCard from '../../components/conmonCard';
+import TestButton from './testComp';
 const datasource=[
     {
       title:"总体介绍",
@@ -17,8 +18,16 @@ const datasource=[
     }
 ]
 class index extends Component {
+    constructor(props){
+        super(props)
+        this.refbtn=React.createRef();
+    }
+    
     gowhere=(path)=>{
         this.props.history.push(path)
+    }
+    componentDidMount() {
+        console.log('@@@@@ref',this.refbtn.current)
     }
     render() {
         return (
@@ -46,6 +55,7 @@ class index extends Component {
                     )
                 }
                     </div>
+                <TestButton ref={this.refbtn}>提交</TestButton>
             </div>
         );
     }

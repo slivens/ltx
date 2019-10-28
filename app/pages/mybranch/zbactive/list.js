@@ -5,10 +5,13 @@ import 'antd/es/icon/style';
 import InfiniteScroll from "react-infinite-scroll-component";
 import {withRouter} from 'react-router-dom';
 import activeData from '../../../../assets/data/activitiy.json';
+import axios from 'axios';
+import commonUrl from '../../../config/index';
 class list extends Component {
     state = {
-        items: activeData,
-        hasMore: true
+        items: [],
+        hasMore: true,
+        pageNum:"0"
     }
     fetchMoreData = () => {
         if (this.state.items.length >= 40) {
@@ -24,7 +27,26 @@ class list extends Component {
     godetail=(id)=>{
         this.props.history.push(`/detail/${id}`)
     }
+    componentWillMount(){
+        this.fetchdata();
+    }
+    fetchdata=()=>{
+        axios.post(`${commonUrl}/app/qryActivityList.do`,
+        {
+            pageNum:this.state.pageNum,
+            pageSize:"20"
+            }
+         )
+        .then(res => {
+            if(res.data.code==="success"){
+                this.setState({items:res.data.data})
+            }else{
+            }
+        })
+    }
     render() {
+        const {items} = this.state;
+        console.log('@@@1111',items)
         return (
             <div className="zbactive_box">
             <InfiniteScroll
@@ -40,17 +62,17 @@ class list extends Component {
                 }
             >    
             {this.state.items.map((item, index) => (
-               <div onClick={()=>this.props.history.push('/zbdetail')} key={index} className="zbactive_item">
+               <div onClick={()=>this.props.history.push(`/zbdetail/${item.id}`)} key={index} className="zbactive_item">
                <div className="zbactive_item_left">
-               <img src={require('../../../../assets/images/banner2.png')}/>
+               <img src={item.imgPath}/>
                </div>
                <div className="zbactive_item_right">
                    <div className="title">
                    <Badge text="进行中" style={{background:"#FFA310"}}/>
                    <span className="title_content">{item.title}</span>
                    </div>
-                   <div className="date"><Icon type="clock-circle" />&nbsp;&nbsp;{item.date}</div> 
-                   <div className="where"><Icon type="environment" />&nbsp;&nbsp;中共闽都社区委员会</div> 
+                   <div className="date"><Icon type="clock-circle" />&nbsp;&nbsp;{item.actDate}</div> 
+                   <div className="where"><Icon type="environment" />&nbsp;&nbsp;{item.actAddr}</div> 
                </div>
            </div>
           ))}

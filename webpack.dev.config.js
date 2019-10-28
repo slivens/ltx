@@ -5,7 +5,7 @@ const CleanHtmlPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixcss = require('autoprefixer');
 const cssnanoFrompostcss = require('cssnano');
-const CopyWebpackPlugin=require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
     entry: ["@babel/polyfill", path.resolve(__dirname, "./index.js")],
@@ -87,13 +87,11 @@ const config = {
         }),
         new CleanHtmlPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new CopyWebpackPlugin([
-            {
-                from: __dirname+'/assets',
-                to: __dirname+'/dist/assets',
-                ignore: ['.*']
-            }
-        ])
+        new CopyWebpackPlugin([{
+            from: __dirname + '/assets',
+            to: __dirname + '/dist/assets',
+            ignore: ['.*']
+        }])
     ],
     optimization: {
         splitChunks: {
@@ -107,6 +105,14 @@ const config = {
         hot: true,
         historyApiFallback: true,
         port: 8080,
+        proxy: {
+            "/api": {
+                target: "http://192.168.111.210:8080",
+                pathRewrite: {
+                    "^/api": ""
+                }
+            }
+        }
     },
 }
 module.exports = config;

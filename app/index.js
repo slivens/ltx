@@ -11,7 +11,9 @@ import {
     EduTrain, Ztjs,Apply,
     SchoolDate,Volunteerbaodao,Lnb,
     Yszd,Ycjp,Dzfwt,
-    Shgc,ComonList
+    Shgc,ComonList,
+    Resetpwd,Suggest,
+    About,Help
 } from './pages';
 import Lottie from './components/lottie';
 const App = ({ history, location }) => {
@@ -46,11 +48,14 @@ const App = ({ history, location }) => {
         'shgc':<Shgc/>,
         'ldyzj':<ComonList title="老党员之家" branchtype="ldyzj"/>,
         'lgbdx':<ComonList title="老干部党校" branchtype="lgbdx"/>,
-        'hsjd':<ComonList title="红色基地" branchtype="hsjd"/>
+        'hsjd':<ComonList title="红色基地" branchtype="hsjd"/>,
+        'resetpwd':<Resetpwd/>,
+        'suggest':<Suggest/>,
+        'about':<About/>,
+        'help':<Help/>
     }
     const { pathname } = location;
     const path = pathname.split('/')[1];
-    console.log('@@@@@@pathname', pathname, path)
     return router[path] || <NotFound />
 }
 export default withRouter(App);

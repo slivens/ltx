@@ -23,3 +23,7 @@ export {default as Ycjp} from './lnb/ycjp';
 export {default as Dzfwt} from './lnb/dzfwt';
 export {default as Shgc} from './lnb/shgc';
 export {default as SchoolDate} from './lndx/schooldate';
+export {default as Resetpwd} from './resetpwd';
+export {default as Suggest} from './suggest';
+export {default as About} from './about';
+export {default as Help} from './help';

@@ -48,7 +48,6 @@ class index extends Component {
         data:homedata
     }
     tabsOnchange=(tab,index)=>{
-        console.log('@@@@@tab',tab)
         switch(tab.title){
             case "工作要闻":
                 this.setState({data:homedata});
@@ -65,7 +64,6 @@ class index extends Component {
         }
     }
     render() {
-        console.log('@@@@state',this.state.data)
         return (
             <div className={prefix}>
                 <div className={prefix + '_topBar'}>
