@@ -8,7 +8,7 @@ import Test from './test';
 const detailTop = ({history,location,match}) => {
     const detid=location.pathname.split('/')[2];
     const findOne = dataSource.filter((item)=>detid===item.id)[0];
-    console.log('@111111@',location,findOne)
+    console.log('@1ssssssssssss@',location,findOne)
     return (
         <div className="ltx_itemDetail">
             <div className="ltx_itemDetail_topbar">
