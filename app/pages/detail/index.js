@@ -12,6 +12,8 @@ const detailTop = ({history,location,match}) => {
     console.log('@沈的第二个111111111',location,findOne)
     console.log('@沈的第二个111111111',location,findOne)
     console.log('@沈的第二个111111111',location,findOne)
+    console.log('@沈的第二个222222',location,findOne)
+    console.log('@沈的第二个222222',location,findOne)
     return (
         <div className="ltx_itemDetail">
             <div className="ltx_itemDetail_topbar">
