@@ -14,7 +14,7 @@ const detailTop = ({history,location,match}) => {
         <div className="ltx_itemDetail">
             <div className="ltx_itemDetail_topbar">
                 <Icon 
-                onClick={()=>history.goBack()}
+                onClick={()=>history.goBack()}s
                 style={{
                 position: "absolute",
                 left: ".1rem",
