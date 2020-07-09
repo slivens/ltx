@@ -13,7 +13,7 @@ const config = {
     devtool: 'cheap-module-eval-source-map',
     output: {
         path: path.resolve(__dirname, "dist"),
-        publicPath: './',
+        publicPath: '/',
         filename: "js/[name].[hash:8].bundle.js",
         chunkFilename: "[name].[hash:8].chunk.js"
     },

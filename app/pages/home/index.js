@@ -64,6 +64,8 @@ class index extends Component {
         }
     }
     render() {
+        let app='slw'
+        console.log('@@@@@@@@aapp',app)
         return (
             <div className={prefix}>
                 <div className={prefix + '_topBar'}>
